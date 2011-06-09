@@ -1,6 +1,6 @@
 name: Farlander
 main: net.weasel.Farlander.Farlander
-version: 1.0
+version: 1.1
 commands:
     far:
         Description: "Go to the Far Lands!"

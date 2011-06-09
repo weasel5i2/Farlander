@@ -45,6 +45,10 @@ public class CommandGoFar implements CommandExecutor
 				destY = playerY;
 				destZ = playerZ;
 
+				if( Farlander.returnLocations.containsKey(player) )
+					Farlander.returnLocations.remove( player );
+				
+				Farlander.returnLocations.put( player, player.getLocation() );
 				player.sendMessage( "Sending you off to the far lands.." );
 				target = new Location(world, destX, destY, destZ );
 				player.teleport( target );
@@ -59,6 +63,10 @@ public class CommandGoFar implements CommandExecutor
 				destY = playerY;
 				destZ = -12550821;
 
+				if( Farlander.returnLocations.containsKey(player) )
+					Farlander.returnLocations.remove( player );
+				
+				Farlander.returnLocations.put( player, player.getLocation() );
 				player.sendMessage( "Sending you off to the far lands.." );
 				target = new Location(world, destX, destY, destZ );
 				player.teleport( target );
@@ -72,6 +80,10 @@ public class CommandGoFar implements CommandExecutor
 				destY = playerY;
 				destZ = playerZ;
 
+				if( Farlander.returnLocations.containsKey(player) )
+					Farlander.returnLocations.remove( player );
+				
+				Farlander.returnLocations.put( player, player.getLocation() );
 				player.sendMessage( "Sending you off to the far lands.." );
 				target = new Location(world, destX, destY, destZ );
 				player.teleport( target );
@@ -85,6 +97,10 @@ public class CommandGoFar implements CommandExecutor
 				destY = playerY;
 				destZ = 12550821;
 
+				if( Farlander.returnLocations.containsKey(player) )
+					Farlander.returnLocations.remove( player );
+				
+				Farlander.returnLocations.put( player, player.getLocation() );
 				player.sendMessage( "Sending you off to the far lands.." );
 				target = new Location(world, destX, destY, destZ );
 				player.teleport( target );

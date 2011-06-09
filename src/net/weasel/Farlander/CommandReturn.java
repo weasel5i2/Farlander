@@ -1,5 +1,6 @@
 package net.weasel.Farlander;
 
+import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.command.Command;
@@ -22,12 +23,23 @@ public class CommandReturn implements CommandExecutor
 		if( arg0 instanceof Player )
 		{
 			Player player = (Player)arg0;
-			World world = player.getWorld();
-			Block spawnBlock = getTopBlock( world, 0, 0 );
-			
-			player.sendMessage( "Returning you to your homeland.." );
-			player.teleport( spawnBlock.getLocation() );
-			Farlander.genTargetChunks( spawnBlock.getLocation() );
+
+			if( Farlander.returnLocations.containsKey(player) )
+			{
+				Location loc = Farlander.returnLocations.get( player );
+				Farlander.genTargetChunks( loc );
+				player.sendMessage( "Returning you to your homeland.." );
+				player.teleport( loc );
+			}
+			else
+			{
+				player.sendMessage( "Unable to send you back home!" );
+				Location loc = getTopBlock( player.getWorld(), 0, 0 ).getLocation();
+				Farlander.genTargetChunks( loc );
+				player.sendMessage( "Sending you to respawn point.." );
+				
+				player.teleport( loc );
+			}
 		}
 		
 		return false;

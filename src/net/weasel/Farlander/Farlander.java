@@ -1,15 +1,19 @@
 package net.weasel.Farlander;
 
+import java.util.HashMap;
+
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.command.CommandExecutor;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Farlander extends JavaPlugin
 {
 	public String pluginName = "";
 	public String pluginVersion = "";
+	public static HashMap<Player,Location> returnLocations = null;
 	
 	@Override
 	public void onDisable() 
@@ -20,6 +24,7 @@ public class Farlander extends JavaPlugin
 	@Override
 	public void onEnable() 
 	{
+		returnLocations = new HashMap<Player,Location>();
 		pluginName = getDescription().getName();
 		pluginVersion = getDescription().getVersion();
 		
