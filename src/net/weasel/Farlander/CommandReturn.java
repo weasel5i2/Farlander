@@ -1,6 +1,5 @@
 package net.weasel.Farlander;
 
-import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.command.Command;
@@ -22,16 +21,13 @@ public class CommandReturn implements CommandExecutor
 	{
 		if( arg0 instanceof Player )
 		{
-			if( arg1.getName() == "return" )
-			{
-				Player player = (Player)arg0;
-				World world = player.getWorld();
-				Block spawnBlock = getTopBlock( world, 0, 0 );
-				
-				player.sendMessage( "Returning you to your homeland.." );
-				player.teleport( spawnBlock.getLocation() );
-				genTargetChunks( spawnBlock.getLocation() );
-			}
+			Player player = (Player)arg0;
+			World world = player.getWorld();
+			Block spawnBlock = getTopBlock( world, 0, 0 );
+			
+			player.sendMessage( "Returning you to your homeland.." );
+			player.teleport( spawnBlock.getLocation() );
+			Farlander.genTargetChunks( spawnBlock.getLocation() );
 		}
 		
 		return false;
@@ -72,27 +68,5 @@ public class CommandReturn implements CommandExecutor
     	}
     	
     	return retVal;
-    }
-
-    public static void genTargetChunks( Location loc )
-    {
-    	World world = loc.getWorld();
-    	Block block = loc.getBlock();
-
-    	Integer X = block.getX();
-    	Integer Z = block.getZ();
-    	
-    	
-    	// Force loading of the 3x3 chunk area player teleports to..
-    	//
-    	world.regenerateChunk( X - 16, Z - 16 );
-    	world.regenerateChunk( X - 16, Z );
-    	world.regenerateChunk( X - 16, Z + 16 );
-    	world.regenerateChunk( X, Z - 16 ); 
-    	world.regenerateChunk( X, Z );
-    	world.regenerateChunk( X, Z + 16 );
-    	world.regenerateChunk( X + 16, Z - 16 );
-    	world.regenerateChunk( X + 16, Z );
-    	world.regenerateChunk( X + 16, Z + 16 );
     }
 }
