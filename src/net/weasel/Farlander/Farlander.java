@@ -20,9 +20,11 @@ public class Farlander extends JavaPlugin
 		pluginName = getDescription().getName();
 		pluginVersion = getDescription().getVersion();
 		
-		CommandExecutor cmdMain = new Commands(this);
-		getCommand( "far" ).setExecutor( cmdMain );
-		getCommand( "return" ).setExecutor( cmdMain );
+		CommandExecutor cmdGoFar = new CommandGoFar(this);
+		CommandExecutor cmdReturn = new CommandReturn(this);
+		
+		getCommand( "far" ).setExecutor( cmdGoFar );
+		getCommand( "return" ).setExecutor( cmdReturn );
 
 		logOutput( pluginName + " v" + pluginVersion + " enabled." );
 	}
