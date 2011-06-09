@@ -1,0 +1,10 @@
+name: Farlander
+main: net.weasel.Farlander.Farlander
+version: 1.0
+commands:
+    far:
+        Description: "Go to the Far Lands!"
+        Usage: "Usage: /far"
+    return:
+        Description: "Return to your homeland"
+        Usage: "Usage: /return"
