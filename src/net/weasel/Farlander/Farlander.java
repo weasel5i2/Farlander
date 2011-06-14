@@ -53,14 +53,14 @@ public class Farlander extends JavaPlugin
     	
     	// Force loading of the 3x3 chunk area player teleports to..
     	//
-    	world.regenerateChunk( X - 16, Z - 16 );
-    	world.regenerateChunk( X - 16, Z );
-    	world.regenerateChunk( X - 16, Z + 16 );
-    	world.regenerateChunk( X, Z - 16 ); 
-    	world.regenerateChunk( X, Z );
-    	world.regenerateChunk( X, Z + 16 );
-    	world.regenerateChunk( X + 16, Z - 16 );
-    	world.regenerateChunk( X + 16, Z );
-    	world.regenerateChunk( X + 16, Z + 16 );
+    	world.refreshChunk( X - 16, Z - 16 );
+    	world.refreshChunk( X - 16, Z );
+    	world.refreshChunk( X - 16, Z + 16 );
+    	world.refreshChunk( X, Z - 16 ); 
+    	world.refreshChunk( X, Z );
+    	world.refreshChunk( X, Z + 16 );
+    	world.refreshChunk( X + 16, Z - 16 );
+    	world.refreshChunk( X + 16, Z );
+    	world.refreshChunk( X + 16, Z + 16 );
     }
 }
